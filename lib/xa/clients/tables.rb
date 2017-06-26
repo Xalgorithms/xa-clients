@@ -14,6 +14,10 @@ module XA
       def create(name)
         send_event('create', { name: name })
       end
+
+      def append(id, row)
+        send_event('append', { table_id: id, row: MultiJson.encode(row) })
+      end
     end
   end
 end
