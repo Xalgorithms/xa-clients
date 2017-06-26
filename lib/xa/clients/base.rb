@@ -18,6 +18,11 @@ module XA
         resp = @conn.get(url)
         resp.success? ? resp.body : nil
       end
+
+      def send_event(name, payload)
+        resp = @conn.post('/api/v1/events', { name: name, payload: payload })
+        resp.success? ? resp.body : nil
+      end
     end
   end
 end

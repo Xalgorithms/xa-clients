@@ -10,6 +10,10 @@ module XA
       def table(id)
         get("/api/v1/tables/#{id}")
       end
+
+      def create(name)
+        send_event('create', { name: name })
+      end
     end
   end
 end
