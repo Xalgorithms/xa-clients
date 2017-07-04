@@ -11,8 +11,12 @@ module XA
         get("/api/v1/tables/#{id}")
       end
 
-      def create(name)
-        send_event('create', { name: name })
+      def table_by_name(name)
+        get("/api/v1/tables/by_name/#{name}")
+      end
+
+      def create(name, rows=[])
+        send_event('create', { name: name, rows: MultiJson.encode(rows) })
       end
 
       def append(id, row)
