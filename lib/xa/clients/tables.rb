@@ -7,6 +7,10 @@ require_relative './base'
 module XA
   module Clients
     class Tables < Base
+      def tables
+        get("/api/v1/tables/")
+      end
+      
       def table(id)
         get("/api/v1/tables/#{id}")
       end
