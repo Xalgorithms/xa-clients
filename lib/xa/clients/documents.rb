@@ -10,6 +10,10 @@ module XA
       def document(id)
         get("/api/v1/documents/#{id}")
       end
+
+      def envelope(id)
+        get("/api/v1/documents/#{id}/envelope")
+      end
     end
   end
 end
